@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 # Change to your IDA binary
-IDA=/path/to/idat64
+IDA=/home/joxean/ida90beta/idat
 # Change to your Diaphora script
-DIAPHORA=/path/to/diaphora.py
+DIAPHORA=/home/joxean/Documents/research/diaphora/public/diaphora.py
 
 if [ $# -eq 0 ]; then
   echo "Usage: $0 <sample>"

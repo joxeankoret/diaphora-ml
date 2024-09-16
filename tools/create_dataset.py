@@ -35,8 +35,8 @@ from common import debug, log, sqlite3_connect, int_compare_ratio, quick_ratio
 from typing import Iterable, Any
 
 #-------------------------------------------------------------------------------
-SAME_BINARY_PERCENT = 99.0
-SAME_NAMES_PERCENT = 99.0
+SAME_BINARY_PERCENT = 90.0
+SAME_NAMES_PERCENT = 85.0
 INVALID_SCORE = -1
 INVALID_VALUE = -2
 
@@ -362,6 +362,7 @@ class CDatasetBuilder:
     same_binary = self.is_same_binary(db)
     if same_binary == "ERROR":
       debug(f"Error with database {path1} or {path2}")
+      same_binary = False
     db.close()
     return same_binary
 
