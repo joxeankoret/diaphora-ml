@@ -18,3 +18,4 @@ The directory `example` contains the following example dataset and script:
  * mini-dataset: A directory with a few binary executables. Just an example dataset.
  * run.sh: Example script that exports with Diaphora every single binary in the `mini-dataset` directoy, generates a CSV files cross comparing all the exported binaries, splits the created dataset into the usual training, validation and test datasets; and then trains a model (using a decision tree algorithm) and verifies it against the test and validation datasets. Please remember to change in the file `/tools/diaphora-export.h` the paths for IDA and Diaphora.
  
+The directory `docs` contains a presentation given in the conference 44CON describing Machine Learning as implemented in Diaphora as of September 2024.
