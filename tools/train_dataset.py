@@ -133,41 +133,7 @@ class CDiaphoraClassifier:
     self.clf = self.classifier_type()
     self.clf.verbose = self.verbose
 
-    """
-    if self.find_best_params and False:
-      from sklearn.model_selection import GridSearchCV
-
-      # {'activation': 'relu', 'hidden_layer_sizes': (60, 30), 'max_iter': 3000, 'solver': 'adam'}
-
-      params = {
-          'criterion':  ['gini', 'entropy', 'log_loss'],
-          'max_depth':  [None, 6, 8, 10],
-          'max_features': [None, 'sqrt', 'log2', 0.2, 0.4, 0.6, 0.8],
-          'splitter': ['best', 'random'],
-          'class_weight' : [None, 'balanced']
-      }
-
-      params = {
-        "hidden_layer_sizes" : [(60, 20), (60, 30), (60, 40)],
-        "max_iter" : [3000],
-        "activation" : ['identity', 'logistic', 'tanh', 'relu'],
-        "solver" : ['adam', 'lbfgs', 'sgd']
-      }
-
-      gr_clf = GridSearchCV(
-          estimator=self.clf,
-          param_grid=params,
-          n_jobs=7,
-          verbose=2,
-      )
-
-      gr_clf.fit(self.X, self.y.ravel())
-      log(f"Best params: {gr_clf.best_params_}")
-
-      for key in gr_clf.best_params_:
-        setattr(self.clf, key, gr_clf.best_params_[key])
-    """
-    self.clf.fit(self.X, self.y.ravel())
+    self.clf.fit(self.X, self.y.to_numpy().ravel())
 
     self.log("Evaluating the model against training dataset...")
     self.evaluate_model("Confusion matrix for training dataset")
